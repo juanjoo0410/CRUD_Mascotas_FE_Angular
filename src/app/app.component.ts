@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CRUD_Mascotas_FE_Angular';
+
+  constructor(private router: Router){};
+
+  openList(){
+    this.router.navigate(['list']);
+  }
+
+  openAdd(){
+    this.router.navigate(['add']);
+  }
 }
