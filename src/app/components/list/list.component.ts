@@ -23,4 +23,9 @@ export class ListComponent {
     .subscribe(data=>{
       this.mascotas=data;})
   }
+
+  editar(mascota: Mascota): void{
+    localStorage.setItem("id", mascota.id.toString());
+    this.router.navigate(['edit']);
+  }
 }

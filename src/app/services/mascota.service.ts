@@ -20,6 +20,10 @@ export class MascotaService {
   }
 
   createMascota(mascota: Mascota){
-    return this.http.post<Mascota[]>(`${this.urlApi}/mascota`, mascota)
+    return this.http.post<Mascota>(`${this.urlApi}/mascota`, mascota)
+  }
+
+  updateMascota(mascota: Mascota){
+    return this.http.put<Mascota>(`${this.urlApi}/mascota`, mascota)
   }
 }
