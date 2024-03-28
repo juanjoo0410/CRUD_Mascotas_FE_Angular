@@ -12,6 +12,14 @@ export class MascotaService {
   constructor(private http: HttpClient) { }
 
   getMascotas(){
-    return this.http.get<Mascota[]>(this.urlApi)
+    return this.http.get<Mascota[]>(`${this.urlApi}/mascotas`);
+  }
+
+  getMascota(id: number){
+    return this.http.get<Mascota>(`${this.urlApi}/mascota/${id}`);
+  }
+
+  createMascota(mascota: Mascota){
+    return this.http.post<Mascota[]>(`${this.urlApi}/mascota`, mascota)
   }
 }
