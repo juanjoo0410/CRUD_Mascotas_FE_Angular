@@ -9,20 +9,28 @@ import { MascotaService } from 'src/app/services/mascota.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent {
-  mascota!: Mascota;
+  mascota = {} as Mascota;
   constructor(
     private router: Router, 
     private service: MascotaService){}
 
   ngOnInit(){
-    //saveMascota(mascota);
+    this.obtenerMascota();
   }
 
-  updateMascota(){
+  obtenerMascota(){
     let id = localStorage.getItem("id");
     this.service.getMascota(parseInt(id ?? "0")).subscribe(data=>{
       this.mascota = data;
-    })
+    });
+  }
+
+  updateMascota(mascota: Mascota){
+    this.service.updateMascota(mascota)
+    .subscribe(data=>{
+      alert("Mascota actualizada exitosamente.");
+      this.router.navigate(['list']);
+    });
   }
 
 }

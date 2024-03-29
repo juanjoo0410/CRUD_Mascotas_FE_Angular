@@ -9,11 +9,7 @@ import { MascotaService } from 'src/app/services/mascota.service';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent {
-  nombre: string = "";
-  raza: string = "";
-  sexo: string = "";
-
-  mascotaObj!: Mascota;
+  mascota = {} as Mascota;
   
 
   constructor(
