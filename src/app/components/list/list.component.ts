@@ -28,4 +28,12 @@ export class ListComponent {
     localStorage.setItem("id", mascota.id.toString());
     this.router.navigate(['edit']);
   }
+
+  eliminar(id: number){
+    this.service.deleteMascota(id)
+    .subscribe(data=>{
+      this.listaMascotas();
+      alert("Mascota eliminada exitosamente.");
+    });
+  }
 }
